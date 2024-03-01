@@ -20,7 +20,7 @@ public class TicTacToe {
 		boolean iterate = true;
 		while(iterate) {
 			int computerMove = random.nextInt(9) + 1;
-			if(isSpaceAvailable(computerMove, board) == true) {
+			if(isValidMove(computerMove, board) == true) {
 				iterate = false;
 				switch(computerMove) {
 			    case 1:
@@ -77,7 +77,7 @@ public class TicTacToe {
 		}
 	}
 	
-	public static boolean isSpaceAvailable(int turn, char[][] board) {
+	public static boolean isValidMove(int turn, char[][] board) {
 		 int row = (turn - 1) / 3;
 		    int col = (turn - 1) % 3;
 		    return board[row][col] == ' ';
@@ -93,7 +93,7 @@ public class TicTacToe {
 			try {
 				userInput = scan.nextLine();
 				int move = Integer.parseInt(userInput);
-				if(isSpaceAvailable(move , board) == true) {
+				if(isValidMove(move , board) == true) {
 					iterate = false;
 					switch(userInput) {
 				    case "1":
